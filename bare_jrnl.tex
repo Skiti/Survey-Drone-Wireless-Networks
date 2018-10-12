@@ -1,0 +1,316 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage{multirow}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+
+\title{A Survey of Drone Networks, Drone Swarms and Air Pollution Monitoring Systems}
+
+\author{Marco~Casagrande
+\thanks{Marco Casagrande is a student attending Master's degree of Computer Science at Padua University, Italy. E-mail: marco.casagrande.5@studenti.unipd.it}
+\thanks{Essay released on January 25, 2018}}
+
+
+\markboth{Wireless Networks, Master's degree, Padua University, 25/01/2018}
+{Casagrande: A Survey of Drone Networks, Drone Swarms and Air Pollution Monitoring Systems}
+
+\maketitle
+
+\begin{abstract}
+Drone-related technology, specifically networks and swarms, has been a thriving research area for many years. UAVs can accomplish a wide array of tasks at an affordable price, featuring uniques strengths compared to other technologies. Drones are commonly used for military, public and private purposes. They still suffer from particular drawbacks and limitations, not completely overcome yet. Many protocols and algorithms were formulated, although massively dependent upon the actual scenario and use cases. The research topic surveyed in this paper will be environmental monitoring, specifically air pollution. UAVs can fill gaps currently present in modern Wireless Sensor Networks (WSNs) thanks to high maneuverability, fast deployment and hovering capability, commonly found in quadricopters. This survey will offer an overview about networks and swarm. to discuss drone integration in real-world air pollution monitoring systems.
+\end{abstract}
+
+\begin{IEEEkeywords}
+drones; UAVs; networks; swarms; Wireless Sensor Network; low-cost sensors; air pollution; environmental monitoring.
+\end{IEEEkeywords}
+
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+
+\IEEEPARstart{T}{he} usage of Unmanned Aerial Vehicles (UAV), also known as drones, is becoming increasingly widespread. Due to mobility, maneuverability and affordable cost, UAVs can find countless fields of application, not only for military and public institutions, but also for small companies and private citizens. Considering the ever-growing value of this technology and its lightning-fast development, keeping track of the most recent scientific publications is vital. To avoid diluting content and provide better insight on a specific area, this paper will be focused on environmental monitoring.
+\\
+People are becoming increasingly aware of air pollution-related issues and the demand for environmental information is growing everyday. Current monitoring systems are not able to satisfy the needs of modern cities and UAVs can be valuable assets in the panorama. Networks, swarms, data gathering through sensors and integration into current Wireless Sensor Networks will be closely analyzed. The ultimate goal is to provide a short but meaningful depiction of the current state-of-the-art about drone-related technology in the area of air pollution monitoring. The rest of the paper is organized as follows. In section II, related works will be briefly examined, providing some preliminary knowledge. In section III, the results of the survey will be thoroughly presented. Section IV summarizes the whole work.
+ 
+\hfill January 25, 2018
+
+\begin{table*}[t]
+  \begin{center}
+  \def\arraystretch{1.4}
+  \begin{tabular}{ |l|l|l|l| }
+  	\hline
+   	\multicolumn{4}{ |c| }{\textbf{CHALLENGES}} \\
+    \hline
+    \textbf{Research Areas} & \textbf{Specific Challenges} & \textbf{Proposed Solutions} & \textbf{References} \\ \hline
+    \multirow{2}{*}{Air Pollution}
+     & Conventional sensors shortcomings & Low-cost sensors & \cite{epaguide} \\ \cline{2-4}
+     & Low citizen involvement & Low-cost sensors & \cite{epaguide} \\ \hline
+     \multirow{1}{*}{Low-cost sensors}
+     & Citizen misuse & AIR Sensor Guidebook & \cite{epaguide} \\ \hline
+    \multirow{2}{*}{Wireless Sensor Networks}
+     & Classification & SSNs, CSNs, VSNs & \cite{wsnsurvey} \\ \cline{2-4}
+     & Improvements & Drone deployment & \cite{wsnsurvey} \\ \hline
+    \multirow{4}{*}{Drones}
+     & Low computational power & Centralized drone systems & \cite{collav} \cite{ragno} \cite{centralized} \\ \cline{2-4}
+     & \multirow{3}{*}{Energy constraints} 
+     & Wireless power transfer & \cite{wpt} \cite{powertransf} \cite{autonom} \cite{wirelessdisaster} \\ \cline{3-4}
+     & & Optimal placement & \cite{wirelessdisaster} \\ \cline{3-4}
+     & & Rotor's wind influence on sensors & \cite{airmeas} \\ \hline
+    \multirow{2}{*}{Drone Networks}
+     & \multirow{2}{*}{Wireless communication} 
+     & OLSR routing & \cite{horswarm} \\ \cline{3-4}
+     & & 802.11a/n/ac/a+s testing & \cite{netwcivil} \\ \hline
+    \multirow{3}{*}{Drone Systems}
+     & \multirow{2}{*}{Centralized systems} 
+     & Swarm-SDK & \cite{centralized} \\ \cline{3-4}
+     & & Finite state machine implementation & \cite{collav} \\ \cline{2-4}
+     & Decentralized systems & Ad-hoc network & \cite{horswarm} \cite{wirelessdisaster} \\ \hline
+    \multirow{12}{*}{Drone Swarms} 
+     & Classification & Behaviour-based & \cite{cognitivesw} \\ \cline{2-4}
+     & \multirow{5}{*}{Coordination} 
+     & Distributed surveillance mission & \cite{addsen} \\ \cline{3-4}
+     & & Sequential/Dynamic Monitoring Scheme & \cite{airwise} \\ \cline{3-4}
+     & & Horizontal chain & \cite{horswarm} \\ \cline{3-4}
+     & & Area surveillance: dispersion and interception & \cite{cognitivesw} \\ \cline{3-4}
+     & & Paparazzi SDK & \cite{paparazzi} \\ \cline{2-4}
+     & \multirow{3}{*}{Spatial management} 
+     & Cube subareas & \cite{airwise} \\ \cline{3-4}
+     & & Square subareas & \cite{ragno} \cite{cognitivesw} \\ \cline{3-4}
+     & & Hexagonal subareas & \cite{swarmtrack} \cite{addsen} \\ \cline{2-4}
+     & \multirow{2}{*}{Collision avoidance}
+     & Obstacle scanning & \cite{ragno} \\ \cline{3-4}
+     & & Euclidean distance & \cite{collav} \\ \cline{2-4}
+     & \multirow{1}{*}{Data dissemination}
+     & Knowledge items & \cite{addsen} \\ \cline{2-4}
+     & Adaptation & Q-Learning & \cite{addsen} \\ \hline
+    \end{tabular}
+    \end{center}
+\end{table*}
+
+\section{Related works}
+
+\subsection{Air pollution and Wireless Sensor Networks}
+Wireless Sensor Networks are the backbone of air pollution monitoring systems. Environmental monitoring is a wide topic and drone applications in this field are being researched, tested and deployed since many years ago.
+\\
+EPA\cite{epa} is the acronym for Environmental Protection Agency (of United States). The Air Sensor Guidebook \cite{epaguide} offers every kind of information that amateurs (or even experts) need to know before adventuring into the complex world of air quality and low-cost sensors.
+\\
+\cite{wsnsurvey} presents a long and detailed survey about air pollution monitoring, Wireless Sensor Networks and low-cost sensors. They describe common measurement activities and relative sensing techniques. They evaluate sensors, classifying performances as precisely as possible. They explain WSN's categories addressing advantages and disadvantages. Lastly they assess how UAV technology could improve environmental monitoring systems.
+\\
+In \cite{airwise} it is proposed a Wireless Sensor Network that can monitor air pollution in a three-dimensional space (although only using a single drone). They created two schemes addressing this scenario both supported with an implementation via algorithm: Sequential Monitoring Scheme, strictly sequential collection of pollution data, and Dynamic Monitoring Scheme, collection frequency depending on the recent stability of a sub-area.
+
+\subsection{Drone networks and swarms}
+Many papers address UAV networks and swarms as those are the most promising areas of development. Challenges are around every corner: movement planning and coordination, data gathering and transmission, event-driven and resource-constrained platform, GPS signal inaccuracy and most importantly wireless connection shortcomings. The aforementioned arguments are accounted in \cite{netwcivil} offering a theoretical formalization of multi-drone system architectures. Design-blocks were completely reliant on effective network and swarm implementation, while the disaster management scenario analyzed proved that actual UAV technology is still unripe, but improving.
+
+\subsubsection{Energy constraints}
+During long missions, energy constraints are one of the major constraining factors. Researchers in \cite{powertransf} address to the low energy autonomy of standard UAVs, investigating possible wireless power transfer solutions. Similarly, in \cite{wirelessdisaster} a drone network acting as a replacement for malfunctioning antennas in disaster zones is evaluated. Data transmission and energy consumption were the main focus, but the proposal requires proper optimization and results were still underwhelming in suboptimal conditions. In \cite{swarmtrack} researchers analyze the energy efficiency and data gathering performance of drone swarms. The UAVs had the goal to minimize travel duration with respect to the energy autonomy, tour fairness and collision avoidance. Optimal parameters for the proposal were found and reported.
+
+\subsubsection{Movement, coordination and collision avoidance}
+Movement, coordination and collision avoidance are the main features in drone swarms that need to be guaranteed without hindering the mission.
+\\
+One proposed technique uses a real controlled environment supported by a motion capture system. In \cite{collav} a collision avoidance algorithm for UAV swarms using a centralized approach is presented. Agents behave according to a finite state machine, traveling directly from a point to another and avoiding possible collision scenarios.
+\\
+A second technique uses base stations, commonly deployed to enhance pre-existent networks. \cite{horswarm} describes a swarm whose formation is an horizontal chain of drones. Whenever the leader moves beyond a maximum range from the network, a follower takes off and acts as a bridge between the leader and the base station. This approach exploits Wi-Fi signal strength to approximate distance, without needing GPS or motion tracking.
+\\
+A third technique uses ad-hoc networks, granting drones the ability to communicate between themselves and other agents (base stations, sensors, machines). This is useful for missions in difficult to reach areas. Implementations are complex but guarantee coordination between any compatible device, allowing multi-robot systems and communications with base stations and antennas.
+\\
+An example of an heterogeneous multi-robot system for environmental monitoring is presented in \cite{ragno}. Ground and air drone collaborate to find an unobstructed path to the mission's objective.
+\\
+ADDSEN \cite{addsen} is a middleware solution for adaptive data processing and dissemination through drone swarms in urban sensing. UAVs are equipped with many sensors, in particular CO\textsubscript{2} and PM\textsubscript{2.5}. The swarm performs surveillance missions by collecting data over sensing locations. Meanwhile, it broadcasts data to nearby drones aiming for an optimal balance of energy and data storage. Broadcasting rate can be dynamically adapted using Q-learning techniques.
+
+
+\subsection{Drone monitoring and sensing}
+Monitoring and sensing are among drone most frequent tasks. While equipping them with a sensor may appear simple, it is a delicate operation since stability and sensor accuracy may be compromised. Additionally, some UAV models may offer no platform for custom software integration.
+\\
+In \cite{aqss} a system to gather air samples in a three-dimensional space is proposed through sensor-equipped drones. In the testing phase only a single one is deployed and GPS dictates its movements. The data is processed by an Arduino Uno \cite{arduno} microcontroller and stored on a cloud server for later analysis.
+\\
+In \cite{leakage} an Airrobot AR100-B micro-drone \cite{airrobot} sports a gas-leakage sensor to test for a possible deployment as a measurement platform. In \cite{parrot} is explained how to control a Parrot AR drone 2 \cite{ardrone} swarm through GPS with Paparazzi SDK \cite{paparazzi}.
+
+
+\section{Survey evaluation}
+
+\subsection{Air pollution}
+Air pollution is extremely complex to evaluate. Pollution is almost entirely caused by human activities, so it is logical to be measured only in urban settings. There are six common pollutants consistently studied and analyzed:
+\begin{itemize}
+	\item Carbon Monoxide (CO);
+    \item Nitrogen Dioxide (NO\textsubscript{2});
+    \item Ozone (O\textsubscript{3});
+    \item Sulfur Dioxide (SO\textsubscript{2});
+    \item Particulate Matter (PM\textsubscript{2.5} and PM\textsubscript{10});
+	\item Lead (Pb).
+\end{itemize}
+Sensor technology vastly improved in the latest years, developing low-cost sensors that appealed to a broad market. Even though citizens may lack knowledge and proper discipline, it is still important to publish information about air quality to increase public awareness.
+
+
+\subsection{Low-cost sensors}
+Conventional air pollution monitoring systems have low spacial and temporal resolution. Low spacial resolution means that there are only few devices deployed and the coverage is narrow. The prohibitive cost of measuring tools is the culprit. Low temporal resolution means that data analysis and dissemination is slow. This happens due to the trade-off between evaluation time and accuracy. Machines cannot fully comprehend air quality reports and humans are needed to account for external variables. Disclosing readable information to the public is another time-consuming and not machine-computable step. Conventional air pollution monitoring systems are suited for ambient background monitoring. 
+\\
+Low-cost sensors possess high spacial and temporal resolution, trading most of their accuracy for those two characteristics. They can represent great tools to measure personal exposure to air pollution or abnormally spiking parameters. Gathered data by them must be evaluated critically: they are heavily influenced by many factors such as temperature, humidity, wind, presence of other gas in the air. Generally those tools publish gathered information on public websites. Drones can only mount low-cost sensor, since they are lightweight devices, so accuracy is penalized even further. Simple events like wind generated by rotors can invalidate gathered data.
+
+
+\subsection{Wireless Sensor Networks}
+This whole subsection was based upon \cite{wsnsurvey}.
+\\
+Wireless Sensor Network (WSN) purpose is collecting, analyzing, storing and publishing environmental data. WSNs can be separated into three general categories:
+\begin{itemize}
+	\item Static Sensor Networks (SSNs);
+    \item Community Sensor Networks (CSNs);
+    \item Vehicle Sensor Networks (VSNs).
+\end{itemize}
+WSN category is unrelated to sensor specifics, so it can employ both conventional or low-cost ones.
+
+\subsubsection{Static Sensor Networks}
+Sensors are installed in stationary devices without any mobility, usually placed on strategic locations like streetlights or walls of traffic-heavy junctions. SSNs sport high accuracy due to optimizations based on their location. Their static nature means loose deployment constraints (energy, weight, size). Their main issues are immobility (requiring thoughtful planning and careful placement), poor coverage and high travel-time to each node whenever maintenance occurs.
+
+\subsubsection{Community Sensor Networks}
+Sensors are typically carried by people on their portable devices. CSNs are cost-efficient because they can utilize features from their host (GPS, Wi-Fi) and achieve great mobility and coverage, but only limited to the user movements. Being under user's responsibility, they are poorly maintained so their accuracy can be really low. They also sport several constraints (energy, weight, size) due to their portable nature. Owner's privacy is potentially leaked as the device tracks movement, visited locations and traveling patterns.
+
+\subsubsection{Vehicle Sensor Networks}
+Sensors are installed on vehicles, usually public transportation such as buses, taxis and trains. VSNs share some SSNs traits (loose constraints and decent accuracy, although lower) and some CSNs traits (high mobility and coverage, although uncontrolled). They also sport unique features (easy maintenance, good accuracy) and disadvantages (carrier cost-inefficiency, redundant sampling, higher spacial resolution trade-off for lower temporal resolution).
+
+\subsubsection{Improving WSNs with drones}
+Currently Wireless Sensor Networks are lacking in three aspects:
+\begin{itemize}
+	\item no 3-dimensional sampling;
+    \item no adaptive behaviour;
+    \item moderate maintenance cost;
+\end{itemize}
+The lack of 3D sampling is caused by the restrictions on sensor placement for high altitudes. Satellite monitoring systems do fare better in heaight but still face the same core issues as conventional monitoring ones and are not suited for faster and wider sampling. Drones can easily reach target altitude and their hovering abilities are well suited for monitoring tasks.
+\\
+The lack of adaptive behaviour is caused by the unavailability of easily and remotely programmable monitoring devices. UAVs can be reconfigured at will whenever the situation requires it.
+\\
+The moderate maintenance cost is caused by human qualified workers frequently needing to physically travel to sensing nodes, wasting time and resources. SSNs, CSNs and VSNs are static, move unpredictably or have some prioritary duty (transportation service). Drones can be used specifically for environment-related missions and can be smoothly relocated to maintenance location.
+
+
+\subsection{Drone networks}
+Developing a drone network is challenging because Wi-Fi protocol does not account for height. The horizontal UAV chain proposed in \cite{horswarm} is an easy and fast solution to link two places, but still does not account for the height. It is only a quick and stiff patch. Similarly, in \cite{swarmtrack} drones are assumed to fly at the same height, avoiding the obstacle without solving it. Energy autonomy is another issue found in UAV networks, frequently utilized to restore networks that were taken down by natural disasters or scheduled maintenance. UAV MANETs suffer from lack of energy autonomy because of their very own nature. \cite{autonom} proposes optimal drone 3D placement and travel patterns algorithms, but planning in advance is not always a possibility and complex algorithms still impact computational constraints. A prevalent solution is Wireless Power Transfer technology.
+
+\subsubsection{Wireless Power Transfer}
+\cite{autonom} advocates Wireless Power Transfer \cite{wpt} to enhance UAV networks energy autonomy. This technique empowers electronic devices from small distances: being farther away means less power transferred. WPT uses electromagnetic waves (lasers, microwaves); it is energy efficient but requires line of sight and offers semi-limited reach. WPT for drones  has been proven feasible but its employment needs to be diligently planned.
+\\
+An improvement of WPT is Simultaneous Wireless Information Power Transfer (SWIPT), proposed in \cite{powertransf}. Information and energy are transmitted at the same time, achieving greater efficiency. Whenever data communication power is overdimensioned, it can be recovered as charging power, further improving efficiency. SWIPT performs well in ideal scenarios and longevity can tweaked changing data transfer rate. In a windy scenario UAVs can't possibly perform any activity because maintaining stability drains immediately all the battery power.
+
+
+\subsection{Drone systems}
+Drones possess excellent mobility, maneuverability and data gathering prowess, but cannot always rely on coming back to the base to deliver information. Implementing reasonable communication protocols and algorithms is necessary to improve efficiency. The presence of an UAV network does not imply the presence of a swarm: messages could be exchanged with base stations, antennas, any other of drone (not belonging to the swarm) and device. UAV control systems can be centralized or decentralized and implement ad hoc networks. It is a consequence of the different nature that drones hold compared to classical network devices and of typical Wi-Fi weaknesses (such as signal collision).
+
+\subsubsection{Centralized drones systems}
+Centralized drones systems rely on motion capture systems and a central controller. This approach needs to be optimized for a single task and can only be deployed to a controlled environment. Additionally, centralized UAV systems need a lot of computational power and still can't address air quality sensor issues. \cite{collav}, \cite{ragno} \cite{centralized} are proposals for this kind of system. .
+
+\subsubsection{Decentralized drones systems}
+Decentralized drones systems rely on UAV internal logic to coordinate movement and data transmission with each other. The algorithms can't be too complex, otherwise the battery would be drained too fast. The main feature of this kind of system is the task flexibility. \cite{swarmtrack} and \cite{cognitivesw} both describe some flavours of decentralized drone system using ad-hoc networks. The amount of data exchanged between UAVs depends upon the desired accuracy for the task. \cite{swarmtrack} proposal utilizes base stations to track drones during the mission. While the results were encouraging for energy consumption, with modest package loss and discontinuous tracking emerged as discouraging problems.
+
+
+\subsection{Drone swarms}
+Drones suffer from limited operational capability when deployed alone. They posses many constraints on battery, computational and storing power, weight and size. The AIRWISE \cite{airwise} system is a good example of efficient usage of one UAV but weaknesses are evident. Autonomy is only 15 to 12 minutes and the covered area is 39x39 meters, not enough for a real monitoring mission. \cite{cognitivesw} investigates advanced concepts related to drone swarms: artificial, continuous and discrete swarms. 
+
+\subsubsection{Advanced swarms categories}
+In artificial swarms, entities can match the velocity of other entities, avoid collisions and avoid getting too far from the formation. In continuous swarms, entities are subject to low range repulsion and high range attraction forces from a virtual potential field. In discrete swarms, entities can become active or inactive unpredictably. They cycle through three steps: look, compute and move. Cognitive infocommunication is a topic merged from info communication and cognitive science. Transmissions between entities are called intra-cognitive if they posses equal cognitive capability and inter-cognitive otherwise. Cognitive swarms can be valuable for surveillance missions as they can easily perform swarm dispersion, target interception and similar tasks, while sharing and propagating any information sensed in the meantime. The key point of cognitive swarms is adaptation.
+
+
+\subsection{Drone monitoring and sensing}
+Many organizations perform monitoring and sensing tasks using drones, since they are such a versatile technology. Commonly monitored parameters in urban settings are noise, traffic, light, wind, temperature, humidity and air quality. For this purpose UAVs need to mount specific sensors. While some of them may be easy to install (small weight and size, low cost, loose maintenance timing), many others (specifically air quality ones) may require some extra effort. Drone networks and swarms technological progress heavily affects the effectiveness of monitoring activities. Single UAVs are very limited in performances due to narrow coverage, low battery autonomy and small amount of sensors. Swarms can provide full coverage of an area while coordinating to compute the best routes for each sensing node. Mounting different sensors on different drones is far easier and more flexible than amassing everything on a single unit. Quadricopters are a favourite platform \cite{ragno} \cite{leakage} \cite{aqss} for monitoring and sensing due to their hovering ability, high customization and affordable price.
+
+\subsubsection{Drone-specific sensing challenges}
+Drones can only be equipped with low-cost sensors, because of physical (weight, size) and technological (chronical inaccuracy, cost-efficiency) constraints. Achieving modest sensor accuracy is already a tough request, even for stationary devices without many limitations. UAVs are simply not suited for gathering precise samples but they can serve a niche role in environmental monitoring.
+\\
+Some challenges are related to the Wi-Fi nature of data transmission. Throughput and data error rate are generally unsatisfying because of the continuous movements and unpredictable interferences or disconnections. Drone networks are very volatile, the devices need to be constantly recharging battery power and accidents (malfunctions, collisions) are always a possibility. The unripe status of 3D communications poses a limit to the deployment of UAVs at different heights. Air traffic is restricted to the same level, increasing the probability of collisions and doubling up on the transmissions required to avoid them, adding to the background noise.
+\\
+A challenge emerged specifically from air quality sensors is avoiding the influence of the wind created by rotor's movements. In \cite{airmeas} researchers studied the physical structure of a quadricopter, evaluating the wind tunnels generated by rotors. Most of other scientific paper address to wind influence only when they evaluate drone stability in flight. Current literature does not investigate this matter any further.
+
+\subsubsection{Spatial management}
+UAV movement is always set on a predefined and restricted area, especially if a motion capture system is involved. This area is divided in smaller fragments, usually with a squared shape. Technically, they have a cube/parallelepiped \cite{airwise} shape, but height is almost never accounted because drone 3D movement is still being researched. Another optimal shape is an hexagon/hexagonal prism \cite{swarmtrack} because it provides more direction choices.
+
+\subsubsection{Data dissemination}
+Since UAVs lack battery autonomy and increasing aerial traffic can promptly degenerate into high risks of collision, data dissemination \cite{addsen} is a powerful technique to be applied. After performing a sensing mission, standard drone behaviour involves returning to the base in order to transmit the data gathered. This approach is wasteful, although simple and effective. Data dissemination consists in propagating the information gathered by UAVs to other nearby units. This way, data reaches the base faster and through clever management of the swarm movements efficiency can be greatly enhanced. There are many possible optimization levels: mindless broadcasting, devoting specific units to constantly go back and fort between the base and the swarms, only delivering information to drones that will soon travel near the base. An evaluation about the accuracy of gathered data can be made through comparison, if multiple samples with same time and location are in possession. Various flags can be stored to assess the original UAV collecting the sample, its swarm allegiance, the delivered-to-the-base status of the message. Those strategies can help spotting interferences caused by Wi-Fi signal or malfunction. Cooperative collision protocol proposals for vehicle-to-vehicle communication \cite{vehicleccp} share many of the aforementioned challenges and future improvements can benefit both research topics.
+
+
+\section{Conclusion}
+A survey about latest drone-related technologies was performed. The main focus of the paper was air pollution monitoring in urban settings, so at first environmental aspects were tackled and exposed. The concepts of environmental monitoring and sensing, low-cost sensors and Wireless Sensor Network were introduced to supply necessary knowledge for the following sections. UAV key features in air pollution monitoring were assessed and motivated. Different approaches for drone networks and swarms technology were discussed while advantages and disadvantages regarding the corresponding proposals were motivated. Standard challenges for UAV networks and swarms were streamlined and the best solutions were highlighted. Lastly, an in-depth presentation about drone monitoring and sensing challenges was given.
+
+
+\begin{thebibliography}{1}
+
+\bibitem{epa}
+https://www.epa.gov/
+
+\bibitem{epaguide}
+Williams, R., Vasu Kilaru, E. Snyder, A. Kaufman, T. Dye, A. Rutter, A. Russell, and H. Hafner, \emph{Air Sensor Guidebook}, U.S. Environmental Protection Agency, Washington, DC, EPA/600/R-14/159 (NTIS PB2015-100610), 2014
+
+\bibitem{wsnsurvey}
+Yi Wei Y., Lo Kin M., Mak Terrence, Leung Kwong S., Leung Yee and Meng Mei L., 2015, \emph{A Survey of Wireless Sensor Network Based Air Pollution Monitoring Systems}, Sensors 15, no. 12: 31392-31427
+
+\bibitem{airwise}
+Evangelatos, Orestis and Rolim, Jose (2015), \emph{AIRWISE - An Airborne Wireless Sensor Network for Ambient Air Pollution Monitoring}, SENSORNETS 2015 - 4th International Conference on Sensor Networks, Proceedings
+
+\bibitem{netwcivil}
+Samira Hayat, Evsen Yanmaz and Raheeb Muzaffar, \emph{Survey on unmanned aerial vehicle networks for civil applications: A communications viewpoint}, IEEECommunications Surveys and Tutorials, Quarter 4, 2016
+
+\bibitem{powertransf}
+D. Mitcheson Paul, Boyle David, Kkelis George, Yates David, Arteaga Juan, Aldhaher Samer and Yeatman Eric, 2017, \emph{Energy-autonomous sensing systems using drones}
+
+\bibitem{wirelessdisaster}
+León Calvo José Ángel, Alirezaei Gholamreza and Mathar Rudolf, 2017, \emph{Wireless powering of drone-based MANETs for disaster zones}, pp. 98-103
+
+\bibitem{swarmtrack}
+M. Bekhti, M. Garraffa, N. Achir, K. Boussetta and L. Létocart, \emph{Assessment of multi-UAVs tracking for data gathering}, 2017 13th International Wireless Communications and Mobile Computing Conference (IWCMC), Valencia, 2017, pp. 1004-1009
+
+\bibitem{collav}
+K. Loayza, P. Lucas and E. Peláez, \emph{A centralized control of movements using a collision avoidance algorithm for a swarm of autonomous agents}, 2017 IEEE Second Ecuador Technical Chapters Meeting (ETCM), Salinas, Ecuador, 2017, pp. 1-6
+
+\bibitem{horswarm}
+O. Shrit, S. Martin, K. Alagha and G. Pujolle, \emph{A new approach to realize drone swarm using ad-hoc network}, 2017 16th Annual Mediterranean Ad Hoc Networking Workshop (Med-Hoc-Net), Budva, 2017, pp. 1-5
+
+\bibitem{ragno}
+M. Carpentiero, L. Gugliermetti, M. Sabatini and G. B. Palmerini, \emph{A swarm of wheeled and aerial robots for environmental monitoring}, 2017 IEEE 14th International Conference on Networking, Sensing and Control (ICNSC), Calabria, 2017, pp. 90-95
+  
+\bibitem{addsen}
+D.~Wu et al., \emph{ADDSEN: Adaptive Data Processing and Dissemination for Drone Swarms in Urban Sensing}, IEEE Transactions on Computers, vol. 66, no. 2, pp. 183-198, Feb. 1 2017
+
+\bibitem{leakage}
+A. Koval, E. Irigoyen and T. Koval, \emph{AR.Drone as a platform for measurements}, 2017 IEEE 37th International Conference on Electronics and Nanotechnology (ELNANO), Kiev, 2017, pp. 424-427
+
+\bibitem{airrobot}
+https://www.airrobot.de/index.php/airrobot-products.html
+
+\bibitem{parrot}
+Remes Bart, Hensen Dino, Tienen Freek, De Wagter Christophe, van der Horst Erik and Croon Guido, 2013, \emph{Paparazzi: how to make a swarm of Parrot AR Drones fly autonomously based on GPS}
+
+\bibitem{ardrone}
+https://www.parrot.com/it/droni/parrot-ardrone-20-elite-edition\#parrot-ardrone-20-elite-edition-details
+
+\bibitem{paparazzi}
+http://wiki.paparazziuav.org/wiki/Main\_Page
+
+\bibitem{aqss}
+J. Wivou, L. Udawatta, A. Alshehhi, E. Alzaabi, A. Albeloshi and S. Alfalasi, \emph{Air quality monitoring for sustainable systems via drone based technology}, 2016 IEEE International Conference on Information and Automation for Sustainability (ICIAfS), Galle, 2016, pp. 1-5
+
+\bibitem{arduno}
+https://store.arduino.cc/usa/arduino-uno-rev3
+
+\bibitem{autonom}
+D. Mitcheson Paul, Boyle David, Kkelis George, Yates David, Arteaga Juan, Aldhaher Samer and Yeatman Eric, 2017, \emph{Energy-autonomous sensing systems using drones}, pp. 1-3
+
+\bibitem{wpt}
+Robert A. Moffatt, \emph{Wireless Power Transfer by Means of Electromagnetic Radiation Within an Enclosed Space}, Nov. 22 2016, https://arxiv.org/abs/1611.07076
+
+\bibitem{centralized}
+A. Mashood, M. Mohammed, M. Abdulwahab, S. Abdulwahab and H. Noura, \emph{A hardware setup for formation flight of UAVs using motion tracking system}, 2015 10th International Symposium on Mechatronics and its Applications (ISMA), Sharjah, 2015, pp. 1-6
+
+\bibitem{cognitivesw}
+M. Gótzy, D. Hetényi and L. Blázovics, \emph{Aerial surveillance system with cognitive swarm drones}, 2016 Cybernetics \& Informatics (K\&I), Levoca, 2016, pp. 1-6
+
+\bibitem{vehicleccp}
+X. Yang, L. Liu, N. H. Vaidya and F. Zhao, \emph{A vehicle-to-vehicle communication protocol for cooperative collision warning}, The First Annual International Conference on Mobile and Ubiquitous Systems: Networking and Services, MOBIQUITOUS 2004, 2004, pp. 114-123
+
+\bibitem{airmeas}
+Pontelandolfo Piero, Balistreri Christophe, Patrick Haas, Triscone Gilles, Pekoz Hasret and Pignatiello Antonio, 2014, \emph{Development of an unmanned aerial vehicle UAV for air quality measurement in urban areas}, 32nd AIAA Applied Aerodynamics Conference 
+
+
+\end{thebibliography}
+
+\end{document}
